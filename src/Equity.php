@@ -3,9 +3,9 @@
 namespace Homeful\Equity;
 
 use Brick\Math\RoundingMode;
+use Brick\Money\Money;
 use Jarouche\Financial\PMT;
 use Whitecube\Price\Price;
-use Brick\Money\Money;
 
 class Equity
 {
@@ -102,6 +102,6 @@ class Equity
 
                 return new Price(Money::of($float, 'PHP', roundingMode: RoundingMode::CEILING));
             })
-            : new Price(Money::of($amount/$months_to_pay, 'PHP', roundingMode: RoundingMode::CEILING));
+            : new Price(Money::of($amount / $months_to_pay, 'PHP', roundingMode: RoundingMode::CEILING));
     }
 }
