@@ -2,9 +2,9 @@
 
 namespace Homeful\Equity\Tests;
 
+use Homeful\Equity\EquityServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Homeful\Equity\EquityServiceProvider;
 
 class TestCase extends Orchestra
 {

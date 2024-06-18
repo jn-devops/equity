@@ -2,9 +2,9 @@
 
 namespace Homeful\Equity;
 
+use Homeful\Equity\Commands\EquityCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Homeful\Equity\Commands\EquityCommand;
 
 class EquityServiceProvider extends PackageServiceProvider
 {
