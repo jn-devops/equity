@@ -17,7 +17,7 @@ class EquityServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('equity')
-            ->hasConfigFile()
+            ->hasConfigFile('equity')
             ->hasViews()
             ->hasMigration('create_equity_table')
             ->hasCommand(EquityCommand::class);
