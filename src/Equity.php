@@ -3,9 +3,9 @@
 namespace Homeful\Equity;
 
 use Brick\Math\RoundingMode;
+use Brick\Money\Money;
 use Jarouche\Financial\PMT;
 use Whitecube\Price\Price;
-use Brick\Money\Money;
 
 class Equity
 {
