@@ -2,7 +2,21 @@
 
 use Homeful\Equity\Equity;
 
-it('has default interest rate, months to pay and monthly amortization', function () {
+it('has default interest rate, months to pay and monthly amortization and configurable', function () {
+    $equity = new Equity;
+    $equity->setAmount(60000);
+    expect($equity->getAmount()->inclusive()->compareTo(60000))->toBe(0);
+    expect($equity->getAnnualInterestRate())->toBe(0.0);
+    expect($equity->getMonthsToPay())->toBe(12);
+    expect($equity->getMonthlyAmortization()->inclusive()->compareTo(5000))->toBe(0);
+    $equity->setMonthsToPay(24);
+    expect($equity->getAmount()->inclusive()->compareTo(60000))->toBe(0);
+    expect($equity->getMonthsToPay())->toBe(24);
+    expect($equity->getAnnualInterestRate())->toBe(0.0);
+    expect($equity->getMonthlyAmortization()->inclusive()->compareTo(2500))->toBe(0);
+});
+
+it('can set interest rate', function () {
     $equity = new Equity;
     $equity->setAmount(240000)->setInterestRate(1 / 100);
     expect($equity->getAnnualInterestRate())->toBe(0.01);

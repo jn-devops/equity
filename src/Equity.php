@@ -93,12 +93,15 @@ class Equity
      */
     public function getMonthlyAmortization(): Price
     {
+        $amount = $this->getAmount()->inclusive()->getAmount()->toFloat();
+        $months_to_pay = $this->getMonthsToPay();
+
         return $this->getMonthlyInterestRate() > 0
-            ? with(new PMT($this->getMonthlyInterestRate(), $this->getMonthsToPay(), $this->getAmount()->inclusive()->getAmount()->toFloat()), function ($obj) {
+            ? with(new PMT($this->getMonthlyInterestRate(), $months_to_pay, $amount), function ($obj) {
                 $float = round($obj->evaluate());
 
-                return new Price(Money::of((int) $float, 'PHP'));
+                return new Price(Money::of($float, 'PHP', roundingMode: RoundingMode::CEILING));
             })
-            : $this->getAmount()->dividedBy($this->getMonthsToPay(), RoundingMode::CEILING);
+            : new Price(Money::of($amount/$months_to_pay, 'PHP', roundingMode: RoundingMode::CEILING));
     }
 }
