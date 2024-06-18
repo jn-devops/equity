@@ -2,9 +2,10 @@
 
 namespace Homeful\Equity;
 
-use Brick\Money\Money;
+use Brick\Math\RoundingMode;
 use Jarouche\Financial\PMT;
 use Whitecube\Price\Price;
+use Brick\Money\Money;
 
 class Equity
 {
@@ -98,6 +99,6 @@ class Equity
 
                 return new Price(Money::of((int) $float, 'PHP'));
             })
-            : $this->getAmount()->dividedBy($this->getMonthsToPay());
+            : $this->getAmount()->dividedBy($this->getMonthsToPay(), RoundingMode::CEILING);
     }
 }
