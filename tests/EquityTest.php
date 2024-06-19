@@ -25,7 +25,7 @@ it('can set interest rate', function () {
     expect($equity->getMonthlyAmortization()->inclusive()->compareTo(20108.0))->toBe(0);
 });
 
-it('has data from object', function() {
+it('has data from object', function () {
     $equity = new Equity;
     $equity->setAmount(240000)->setInterestRate(1 / 100);
     $data = EquityData::fromObject($equity);
@@ -35,7 +35,7 @@ it('has data from object', function() {
     expect($data->monthly_amortization)->toBe($equity->getMonthlyAmortization()->inclusive()->getAmount()->toFloat());
 });
 
-it('has data from array', function() {
+it('has data from array', function () {
     $equity = new Equity;
     $equity->setAmount(240000)->setInterestRate(1 / 100);
     $array = EquityData::fromObject($equity)->toArray();

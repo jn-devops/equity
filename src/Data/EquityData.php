@@ -2,13 +2,13 @@
 
 namespace Homeful\Equity\Data;
 
-use Brick\Math\Exception\RoundingNecessaryException;
-use Brick\Money\Exception\UnknownCurrencyException;
-use Brick\Money\Exception\MoneyMismatchException;
-use Brick\Math\Exception\NumberFormatException;
 use Brick\Math\Exception\MathException;
-use Spatie\LaravelData\Data;
+use Brick\Math\Exception\NumberFormatException;
+use Brick\Math\Exception\RoundingNecessaryException;
+use Brick\Money\Exception\MoneyMismatchException;
+use Brick\Money\Exception\UnknownCurrencyException;
 use Homeful\Equity\Equity;
+use Spatie\LaravelData\Data;
 
 class EquityData extends Data
 {
@@ -17,8 +17,7 @@ class EquityData extends Data
         public int $months_to_pay,
         public float $interest_rate,
         public float $monthly_amortization,
-    ) {
-    }
+    ) {}
 
     /**
      * @throws MathException
